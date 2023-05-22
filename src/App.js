@@ -6,6 +6,24 @@ import {
   AiFillContacts,
 } from "react-icons/ai";
 
+const dataTour = [
+  {
+    text: "6월이벤트",
+    image:
+      "https://images.unsplash.com/photo-1682687221363-72518513620e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+  },
+  {
+    text: "7월이벤트",
+    image:
+      "https://plus.unsplash.com/premium_photo-1683299266036-9e9b6c9d9152?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  },
+  {
+    text: "8월이벤트",
+    image:
+      "https://images.unsplash.com/photo-1682686581220-689c34afb6ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  },
+];
+
 function App() {
   return (
     <>
@@ -21,6 +39,7 @@ function App() {
             bg="gray.800"
             position="fixed"
             top={0}
+            zIndex={9}
           >
             <AiFillApple size={32} color="white" />
           </Box>
@@ -173,43 +192,43 @@ function App() {
               <Text fontWeight={600} fontSize={24}>
                 이벤트
               </Text>
-              <Grid w="full">
-                <GridItem
-                  rounded={"lg"}
-                  w="full"
-                  h="120px"
-                  backgroundImage={
-                    "url('https://images.unsplash.com/photo-1683380381470-8bb7e42aa5b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"
-                  }
-                  backgroundSize="cover"
-                  backgroundPosition={"center center"}
-                  position={"relative"}
-                >
-                  <Box
-                    position="absolute"
-                    top={0}
-                    left={0}
+              <Grid gap={4} w="full">
+                {dataTour.map((list, index) => (
+                  <GridItem
+                    key={index}
+                    rounded={"lg"}
                     w="full"
-                    h="full"
-                    bgGradient="linear(to-b, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7))"
+                    h="120px"
+                    backgroundImage={`url(${list.image})`}
+                    backgroundSize="cover"
+                    backgroundPosition={"center center"}
+                    position={"relative"}
                   >
-                    <Text
-                      w="full"
-                      align="center"
+                    <Box
                       position="absolute"
-                      top="50%"
-                      left="50%"
-                      transform={"translate(-50%, -50%)"}
-                      fontWeight={900}
-                      fontSize="20"
-                      color="red.600"
+                      top={0}
+                      left={0}
+                      w="full"
+                      h="full"
+                      bgGradient="linear(to-b, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7))"
                     >
-                      6월 이벤트 10% 할인
-                    </Text>
-                  </Box>
-                </GridItem>
-                <GridItem>2</GridItem>
-                <GridItem>3</GridItem>
+                      <Text
+                        w="full"
+                        align="center"
+                        position="absolute"
+                        top="50%"
+                        left="50%"
+                        transform={"translate(-50%, -50%)"}
+                        fontWeight={900}
+                        fontSize="20"
+                        color="red.600"
+                      >
+                        {list.text}
+                        {index}
+                      </Text>
+                    </Box>
+                  </GridItem>
+                ))}
               </Grid>
             </VStack>
           </VStack>
