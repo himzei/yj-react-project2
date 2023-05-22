@@ -1,12 +1,13 @@
-import { Text, Box, VStack, HStack, Grid, GridItem } from "@chakra-ui/react";
+import { Text, Box, VStack, HStack } from "@chakra-ui/react";
 import {
   AiFillApple,
   AiFillHome,
   AiFillProfile,
   AiFillContacts,
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-function App() {
+export default function Layout({ children }) {
   return (
     <>
       <Box w="full" display="flex" justifyContent={"center"}>
@@ -27,6 +28,7 @@ function App() {
           </Box>
 
           {/* 본문 */}
+          {children}
 
           {/* tail */}
           <Box w="inherit" h="120px" bg="gray.800" position="fixed" bottom={0}>
@@ -36,20 +38,26 @@ function App() {
               alignItems="center"
               color="white"
             >
-              <VStack w="full">
-                <AiFillHome />
-                <Text>홈</Text>
-              </VStack>
+              <Link to="/">
+                <VStack w="full">
+                  <AiFillHome />
+                  <Text>홈</Text>
+                </VStack>
+              </Link>
 
-              <VStack w="full">
-                <AiFillProfile />
-                <Text>프로필</Text>
-              </VStack>
+              <Link to="/profile">
+                <VStack w="full">
+                  <AiFillProfile />
+                  <Text>프로필</Text>
+                </VStack>
+              </Link>
 
-              <VStack w="full">
-                <AiFillContacts />
-                <Text>연락처</Text>
-              </VStack>
+              <Link to="/contact">
+                <VStack w="full">
+                  <AiFillContacts />
+                  <Text>연락처</Text>
+                </VStack>
+              </Link>
             </HStack>
           </Box>
         </VStack>
@@ -57,5 +65,3 @@ function App() {
     </>
   );
 }
-
-export default App;
