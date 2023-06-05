@@ -1,5 +1,6 @@
 import { Box, Grid, GridItem, Text, VStack } from "@chakra-ui/react";
 import Layout from "./Layout";
+import {Link} from "react-router-dom";
 
 const dataTour = [
   {
@@ -182,29 +183,32 @@ export default function Home() {
                   backgroundPosition={"center center"}
                   position={"relative"}
                 >
-                  <Box
-                    position="absolute"
-                    top={0}
-                    left={0}
-                    w="full"
-                    h="full"
-                    bgGradient="linear(to-b, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7))"
-                  >
-                    <Text
-                      w="full"
-                      align="center"
+                  <Link to="/detail">
+                    <Box
                       position="absolute"
-                      top="50%"
-                      left="50%"
-                      transform={"translate(-50%, -50%)"}
-                      fontWeight={900}
-                      fontSize="20"
-                      color="red.600"
+                      top={0}
+                      left={0}
+                      w="full"
+                      h="full"
+                      bgGradient="linear(to-b, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7))"
                     >
-                      {list.text}
-                      {index}
-                    </Text>
-                  </Box>
+                      <Text
+                        w="full"
+                        align="center"
+                        position="absolute"
+                        top="50%"
+                        left="50%"
+                        transform={"translate(-50%, -50%)"}
+                        fontWeight={900}
+                        fontSize="20"
+                        color="red.600"
+                      >
+                        {list.text}
+                        {index}
+                      </Text>
+                    </Box>
+                  </Link>
+                  
                 </GridItem>
               ))}
             </Grid>
