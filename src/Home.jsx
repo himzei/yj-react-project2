@@ -2,6 +2,7 @@ import { Box, Grid, GridItem, Text, VStack } from "@chakra-ui/react";
 import Layout from "./Layout";
 import {Link} from "react-router-dom";
 
+
 const dataTour = [
   {
     text: "6월이벤트",

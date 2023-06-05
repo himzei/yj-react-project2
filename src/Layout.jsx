@@ -7,6 +7,7 @@ import {
   AiOutlineArrowLeft
 } from "react-icons/ai";
 
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const GNB = [
